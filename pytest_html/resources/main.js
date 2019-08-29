@@ -68,14 +68,21 @@ function show_filters() {
         filter_items[i].hidden = false;
 }
 
+/*
 function add_collapse() {
     // Add links for show/hide all
     var resulttable = find('table#results-table');
     var showhideall = document.createElement("p");
     showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
                             '<a href="javascript:hide_all_extras()">Hide all details</a>';
+    resulttable.parentElement.insertBefore(showhideall, resulttable);*/
+function add_collapse() {  // modify by linux超
+    // Add links for show/hide all
+    var resulttable = find('table#results-table');
+    var showhideall = document.createElement("p");
+    showhideall.innerHTML = '<a href="javascript:show_all_extras()">显示详情</a> / ' +
+                            '<a href="javascript:hide_all_extras()">隐藏详情</a>';
     resulttable.parentElement.insertBefore(showhideall, resulttable);
-
     // Add show/hide link to each result
     find_all('.col-result').forEach(function(elem) {
         var collapsed = get_query_parameter('collapsed') || 'Passed';
@@ -119,6 +126,16 @@ function init () {
                                   sort_column(elem);
                               }, false)
     });
+	// 修改用例报告显示的用例名称 add by linux超
+	var case_name_td = document.getElementsByClassName("col-name")
+		for(var i = 0; i < case_name_td.length; i++)
+			try{
+				case_name_td[i].innerText = case_name_td[i].innerText.split("\[")[1].split("\]")[0];
+			}
+			catch(err){
+				// 如果表格中没有[]会抛异常，如果抛异常我就显示null，如果你想显示别的东西自己改吧，因为通常只要我们使用参数化就有[]显示
+				case_name_td[i].innerText = "null";
+			}
 
 };
 
@@ -144,18 +161,12 @@ function sort(items, key_func, reversed) {
     var sort_array = items.map(function(item, i) {
         return [key_func(item), i];
     });
+    var multiplier = reversed ? -1 : 1;
 
     sort_array.sort(function(a, b) {
         var key_a = a[0];
         var key_b = b[0];
-
-        if (key_a == key_b) return 0;
-
-        if (reversed) {
-            return (key_a < key_b ? 1 : -1);
-        } else {
-            return (key_a > key_b ? 1 : -1);
-        }
+        return multiplier * (key_a >= key_b ? 1 : -1);
     });
 
     return sort_array.map(function(item) {
