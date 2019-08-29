@@ -39,7 +39,6 @@ To install pytest-html:
 
 .. code-block:: bash
 
-  $ pip install pytest-html
   $ pip install git+https://github.com/pytest-dev/pytest-html
 
 Then run your tests with:
