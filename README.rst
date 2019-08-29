@@ -1,6 +1,8 @@
 pytest-html
 ===========
 
+this a pytest-html for chinaese version
+
 pytest-html is a plugin for `pytest <http://pytest.org>`_ that generates a
 HTML report for the test results.
 
@@ -38,6 +40,7 @@ To install pytest-html:
 .. code-block:: bash
 
   $ pip install pytest-html
+  $ pip install git+https://github.com/pytest-dev/pytest-html
 
 Then run your tests with:
 
