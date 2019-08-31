@@ -127,15 +127,15 @@ function init () {
                               }, false)
     });
 	// 修改用例报告显示的用例名称 add by linux超
-	// var case_name_td = document.getElementsByClassName("col-name");
-	// 	for(var i = 0; i < case_name_td.length; i++)
-	// 		try{
-	// 			case_name_td[i].innerText = case_name_td[i].innerText.split("\[")[1].split("\]")[0];
-	// 		}
-	// 		catch(err){
-	// 			// 如果表格中没有[]会抛异常，如果抛异常我就显示null，如果你想显示别的东西自己改吧，因为通常只要我们使用参数化就有[]显示
-	// 			case_name_td[i].innerText = "null";
-	// 		}
+	var case_name_td = document.getElementsByClassName("col-name");
+		for(var i = 0; i < case_name_td.length; i++)
+			try{
+				case_name_td[i].innerText = case_name_td[i].innerText.split("\[")[1].split("\]")[0];
+			}
+			catch(err){
+				// 如果表格中没有[]会抛异常，如果抛异常我就显示null，如果你想显示别的东西自己改吧，因为通常只要我们使用参数化就有[]显示
+				case_name_td[i].innerText = "测试用例无参数化数据null";
+			}
 
 };
 
