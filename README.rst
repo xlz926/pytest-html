@@ -38,7 +38,9 @@ Installation
 To install pytest-html:
 
 .. code-block:: bash
-  $ 下载github上的项目，切换到项目中setup.py文件所在的目录，执行以下命令即可
+
+  the first, you need to down load the chinese pytest-html
+  $ cd to pytest-html dir
   $ python setup.py install
 
 Then run your tests with:
