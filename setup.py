@@ -7,7 +7,7 @@ setup(
     long_description=open("README.rst").read(),
     author="Dave Hunt",
     author_email="dhunt@mozilla.com",
-    url="https://github.com/pytest-dev/pytest-html",
+    url="https://github.com/13691579846/pytest-html",
     packages=["pytest_html"],
     package_data={"pytest_html": ["resources/*"]},
     entry_points={"pytest11": ["html = pytest_html.plugin"]},
