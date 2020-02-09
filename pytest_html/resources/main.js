@@ -202,7 +202,7 @@ function reset_sort_headers() {
     find_all('.sortable').forEach(function(elem) {
         var icon = document.createElement("div");
         icon.className = "sort-icon";
-        icon.textContent = "vvv";
+        icon.textContent = "字段";
         elem.insertBefore(icon, elem.firstChild);
         elem.classList.remove("desc", "active");
         elem.classList.add("asc", "inactive");

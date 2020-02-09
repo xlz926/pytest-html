@@ -104,7 +104,7 @@ class HTMLReport(object):
         def __init__(self, outcome, report, logfile, config):
             self.test_id = report.nodeid
             if getattr(report, 'when', 'call') != 'call':
-                self.test_id = '::'.join([report.nodeid, report.when])
+                self.test_id = '::'.join([report.nodeid.encode("utf-8").decode("unicode_escape"), report.when])
             self.time = getattr(report, 'duration', 0.0)
             self.outcome = outcome
             self.additional_html = []
@@ -441,8 +441,7 @@ class HTMLReport(object):
                             class_='sortable result initial-sort',
                             col='result'),
                     html.th('用例', class_='sortable', col='name'),
-                    html.th('耗时', class_='sortable numeric', col='duration'),
-                    html.th('链接')]
+                    html.th('耗时', class_='sortable numeric', col='duration')]
         session.config.hook.pytest_html_results_table_header(cells=cells)
 
         # results = [html.h2('Results'), html.table([html.thead(

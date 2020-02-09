@@ -41,6 +41,7 @@ To install pytest-html:
 
   the first, you need to down load the chinese pytest-html
   $ cd to pytest-html dir
+  $ pip uninstall pytest-html
   $ python setup.py install
 
 Then run your tests with:
